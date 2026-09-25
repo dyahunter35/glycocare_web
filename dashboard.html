@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="لوحة القياسات اليومية في سُكّري بلس - أدخل قراءات سكر الدم، احصل على التصنيف المباشر، وادر سجل القياسات الكامل بكل يسر وحفظ آمن.">
+  <title>لوحة القياسات اليومية | سُكّري بلس</title>
+  
+  <!-- الخطوط والأيقونات -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- ملف التنسيقات الرئيسية -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- شاشة التحميل -->
+  <div id="app-loader">
+    <div class="loader-pulse"><i class="fas fa-droplet"></i></div>
+    <div class="loader-logo"><span>سُكّري <span>بلس</span></span></div>
+  </div>
+
+  <!-- الهيدر وشريط التنقل -->
+  <header class="site-header">
+    <nav class="navbar" aria-label="التنقل الرئيسي">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-icon-wrapper"><i class="fas fa-droplet"></i></div>
+        <div class="brand-text-group">
+          <span class="brand-name">سُكّري <span>بلس</span></span>
+          <span class="brand-slogan">قياساتك أوضح، ومتابعتك أسهل</span>
+        </div>
+      </a>
+
+      <ul class="nav-menu" id="nav-menu-list">
+        <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> الصفحة الرئيسية</a></li>
+        <li><a href="dashboard.html" class="nav-link active"><i class="fas fa-chart-line"></i> لوحة القياسات</a></li>
+        <li><a href="analytics.html" class="nav-link"><i class="fas fa-chart-pie"></i> التقارير</a></li>
+        <li><a href="nutrition.html" class="nav-link"><i class="fas fa-utensils"></i> الدليل الصحي</a></li>
+        <li><a href="contact.html" class="nav-link"><i class="fas fa-user-md"></i> التواصل والطوارئ</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="theme-toggle" title="تبديل الوضع الليلي" aria-label="تبديل الوضع الليلي">
+          <i class="fas fa-moon"></i>
+        </button>
+        <a href="dashboard.html" class="btn btn-primary btn-sm"><i class="fas fa-plus-circle"></i> أضف قراءة</a>
+        <button class="mobile-toggle" id="mobile-toggle-btn" aria-label="القائمة البرمجية للهاتف"><i class="fas fa-bars"></i></button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- المحتوى الرئيسي -->
+  <main class="container">
+    
+    <!-- عنوان الصفحة -->
+    <div class="section-header" style="text-align: right; margin-bottom: 2rem;">
+      <span class="section-subtitle">إدارة القراءات اليومية</span>
+      <h1 class="section-title">لوحة القياسات اليومية</h1>
+      <p class="section-desc">أدخل القراءة واحفظها لمتابعة تغير مستوى سكر الدم مع الوقت وفهم الاستجابة للوجبات والنشاط.</p>
+    </div>
+
+    <!-- ترويسة الطباعة (تظهر فقط عند الطباعة) -->
+    <div class="print-header" aria-hidden="true">
+      <div class="print-header-brand"><i class="fas fa-droplet"></i> سُكّري بلس</div>
+      <h1>سجل قياسات سكر الدم</h1>
+      <p>تاريخ الطباعة: <span id="print-date">--</span></p>
+    </div>
+
+    <!-- البطاقات الأربع الإحصائية السريعة في أعلى اللوحة -->
+    <div class="stats-grid" style="margin-top: 0; margin-bottom: 2.5rem;">
+      <div class="stat-card">
+        <div class="stat-icon" style="background: var(--light-blue); color: var(--primary-blue);"><i class="fas fa-heart-pulse"></i></div>
+        <div class="stat-info">
+          <span class="stat-label">آخر قراءة</span>
+          <span class="stat-value" id="dash-last-reading">--</span>
+          <span class="stat-unit">أحدث تسجيل</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon" style="background: var(--status-target-bg); color: var(--status-target);"><i class="fas fa-calendar-day"></i></div>
+        <div class="stat-info">
+          <span class="stat-label">متوسط اليوم</span>
+          <span class="stat-value" id="dash-today-avg">--</span>
+          <span class="stat-unit">معدل اليوم الحالي</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon" style="background: var(--status-high-bg); color: var(--status-high);"><i class="fas fa-arrow-up-right-dots"></i></div>
+        <div class="stat-info">
+          <span class="stat-label">أعلى قراءة</span>
+          <span class="stat-value" id="dash-max-reading">--</span>
+          <span class="stat-unit">في السجل الحالي</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon" style="background: var(--status-low-bg); color: var(--status-low);"><i class="fas fa-arrow-down-short-wide"></i></div>
+        <div class="stat-info">
+          <span class="stat-label">أقل قراءة</span>
+          <span class="stat-value" id="dash-min-reading">--</span>
+          <span class="stat-unit">في السجل الحالي</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- الهيكل الرئيسي للوحة القياسات: النموذج + السجل -->
+    <div class="dashboard-layout">
+
+      <!-- 1. نموذج إضافة القياس وتصنيفه -->
+      <section class="card form-card no-print">
+        <h2 style="font-size: 1.3rem; font-weight: 800; color: var(--dark-blue); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem;">
+          <i class="fas fa-pen-to-square" style="color: var(--primary-blue);"></i> تسجيل قراءة جديدة
+        </h2>
+
+        <form id="glucose-form" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="reading-value">قيمة قراءة سكر الدم <span style="color:var(--status-high)">*</span></label>
+            <div class="input-with-unit">
+              <input type="number" id="reading-value" class="form-control" placeholder="مثال: 120" min="20" max="600" required>
+              <span class="input-unit-badge">mg/dL</span>
+            </div>
+            <div class="form-error-msg" id="value-error-msg">يرجى إدخال رقم صحيح بين 20 و 600 mg/dL</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reading-unit">وحدة القياس</label>
+            <select id="reading-unit" class="form-control">
+              <option value="mg/dL" selected>mg/dL (ملجم/ديسيلتر)</option>
+              <option value="mmol/L">mmol/L (مليمول/لتر)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reading-type">توقيت وحالة القياس <span style="color:var(--status-high)">*</span></label>
+            <select id="reading-type" class="form-control" required>
+              <option value="fasting" selected>صائم (بعد 8 ساعات صيام)</option>
+              <option value="pre_meal">قبل الوجبة</option>
+              <option value="post_meal">بعد الوجبة (بساعة إلى ساعتين)</option>
+              <option value="bedtime">قبل النوم</option>
+              <option value="random">قياس عشوائي</option>
+            </select>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label" for="reading-date">التاريخ</label>
+              <input type="date" id="reading-date" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="reading-time">الوقت</label>
+              <input type="time" id="reading-time" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reading-notes">ملاحظات إضافية (اختياري)</label>
+            <textarea id="reading-notes" class="form-control" rows="2" placeholder="أضف ملاحظة (نوع الوجبة، نشاط بدني، شعر بالتعب...)"></textarea>
+          </div>
+
+          <div class="form-actions" style="display:flex; flex-direction:column; gap:0.5rem">
+            <div style="display: flex; gap: 0.5rem;">
+              <button type="button" id="analyze-btn" class="btn btn-secondary" style="flex: 1;">
+                <i class="fas fa-stethoscope"></i> تحليل القراءة
+              </button>
+              <button type="submit" class="btn btn-primary" style="flex: 1;">
+                <i class="fas fa-save"></i> حفظ القراءة
+              </button>
+            </div>
+            <button type="button" id="reset-form-btn" class="btn btn-sm btn-secondary" style="width:100%; border:none; color:var(--text-muted)">
+              <i class="fas fa-rotate"></i> تفريغ النموذج
+            </button>
+          </div>
+        </form>
+
+        <!-- بطاقة نتيجة التصنيف المباشر -->
+        <div class="result-card" id="result-card">
+          <div class="result-header">
+            <span class="badge" id="result-title">تصنيف القراءة</span>
+            <i class="fas fa-heart-pulse" id="result-icon" style="font-size: 1.4rem;"></i>
+          </div>
+          <div class="result-value" id="result-value">-- mg/dL</div>
+          <div class="range-bar-container">
+            <div class="range-bar-fill" id="result-range-fill" style="width: 50%;"></div>
+          </div>
+          <p id="result-desc" style="font-size: 0.85rem; color: var(--text-main); line-height: 1.5;"></p>
+          <div style="margin-top: 0.75rem; font-size: 0.75rem; color: var(--text-muted); border-top: 1px dashed var(--border-color); padding-top: 0.5rem;">
+            تنبيه: الأهداف الرقمية الدقيقة تختلف حسب توجيهات طبيبك المباشر.
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. جدول سجل القراءات التاريخي -->
+      <section class="card">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+          <h2 style="font-size: 1.3rem; font-weight: 800; color: var(--dark-blue); display: flex; align-items: center; gap: 0.5rem;">
+            <i class="fas fa-history" style="color: var(--primary-blue);"></i> سجل القياسات المسجلة
+          </h2>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;" class="no-print">
+            <button class="btn btn-secondary btn-sm" id="export-csv-btn" title="تصدير إلى ملف CSV">
+              <i class="fas fa-file-csv"></i> تصدير CSV
+            </button>
+            <button class="btn btn-secondary btn-sm" id="print-log-btn" title="طباعة السجل">
+              <i class="fas fa-print"></i> طباعة
+            </button>
+            <button class="btn btn-secondary btn-sm" id="restore-demo-btn" title="استعادة البيانات التجريبية">
+              <i class="fas fa-rotate-left"></i> استعادة البيانات
+            </button>
+            <button class="btn btn-danger btn-sm" id="clear-all-btn" title="مسح كافة البيانات">
+              <i class="fas fa-trash-can"></i> مسح الكل
+            </button>
+          </div>
+        </div>
+
+        <!-- شريط أدوات الجدول: بحث وتصفية وترتيب -->
+        <div class="log-toolbar no-print">
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="table-search" class="form-control" placeholder="ابحث بقيمة القراءة، الملاحظات، أو التاريخ...">
+          </div>
+
+          <div class="filter-group">
+            <select id="filter-status" class="form-control" style="width: auto;">
+              <option value="all">جميع الحالات</option>
+              <option value="target">ضمن الهدف</option>
+              <option value="high">مرتفع</option>
+              <option value="low">منخفض</option>
+              <option value="borderline">أقل من الهدف</option>
+            </select>
+
+            <select id="filter-type" class="form-control" style="width: auto;">
+              <option value="all">جميع التوقيتات</option>
+              <option value="fasting">صائم</option>
+              <option value="pre_meal">قبل الوجبة</option>
+              <option value="post_meal">بعد الوجبة</option>
+              <option value="bedtime">قبل النوم</option>
+              <option value="random">عشوائي</option>
+            </select>
+
+            <select id="sort-order" class="form-control" style="width: auto;">
+              <option value="newest">الأحدث أولاً</option>
+              <option value="oldest">الأقدم أولاً</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- الجدول التفاعلي المتجاوب -->
+        <div class="table-responsive">
+          <table class="custom-table" aria-label="جدول سجل قياسات سكر الدم">
+            <thead>
+              <tr>
+                <th>القراءة</th>
+                <th>الحالة</th>
+                <th>توقيت القياس</th>
+                <th>التاريخ</th>
+                <th>الوقت</th>
+                <th>الملاحظات</th>
+                <th>الإجراءات</th>
+              </tr>
+            </thead>
+            <tbody id="readings-tbody">
+              <!-- يتم توليد الصفوف ديناميكياً بواسطة JavaScript -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- حالة الجدول الفارغ -->
+        <div id="table-empty-state" style="display: none; text-align: center; padding: 4rem 1.5rem; color: var(--text-muted);">
+          <div style="font-size: 3.5rem; color: var(--text-light); margin-bottom: 1rem;"><i class="fas fa-folder-open"></i></div>
+          <h3 style="font-size: 1.2rem; color: var(--dark-blue); margin-bottom: 0.5rem;">لا توجد قراءات مسجلة حالياً</h3>
+          <p style="font-size: 0.95rem; margin-bottom: 1.5rem;">استخدم النموذج الجانبي لإضافة قراءتك الأولى أو انقر على زر "استعادة البيانات التجريبية".</p>
+        </div>
+
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- التذييل -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><i class="fas fa-droplet" style="color: var(--teal);"></i> سُكّري بلس</div>
+        <p class="footer-desc">منصة عربية تعليمية تم تطويرها كبرنامج تخرج جامعي لمساعدة المرضى على متابعة قياسات سكر الدم اليومية.</p>
+        <div class="footer-disclaimer-box">
+          <i class="fas fa-triangle-exclamation" style="color: var(--status-borderline);"></i> هذه المنصة مشروع تعليمي لمتابعة البيانات ولا تقدم تشخيصًا أو خطة علاجية.
+        </div>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">روابط الصفحات</h4>
+        <ul class="footer-links">
+          <li><a href="index.html"><i class="fas fa-chevron-left"></i> الصفحة الرئيسية</a></li>
+          <li><a href="dashboard.html"><i class="fas fa-chevron-left"></i> لوحة القياسات</a></li>
+          <li><a href="analytics.html"><i class="fas fa-chevron-left"></i> التقارير الإحصائية</a></li>
+          <li><a href="nutrition.html"><i class="fas fa-chevron-left"></i> الدليل الصحي والغذاء</a></li>
+          <li><a href="contact.html"><i class="fas fa-chevron-left"></i> التواصل والطوارئ</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">المصادر الصحية المعتمدة</h4>
+        <ul class="footer-links">
+          <li><a href="https://diabetes.org/living-with-diabetes/treatment-care/checking-your-blood-sugar" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square"></i> الجمعية الأمريكية للسكري</a></li>
+          <li><a href="https://www.cdc.gov/diabetes/treatment/treatment-low-blood-sugar-hypoglycemia.html" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square"></i> مراكز الـ CDC - الهبوط</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>حقوق الطبع والتأليف &copy; <span id="current-year">2026</span> - مشروع جامعي تعليمي لتصميم واجهات الويب</div>
+    </div>
+  </footer>
+
+  <!-- زر العودة للأعلى -->
+  <button class="back-to-top" id="back-to-top" aria-label="العودة لأعلى الصفحة"><i class="fas fa-arrow-up"></i></button>
+
+  <!-- البرمجة التفاعلية (مقسمة إلى وحدات) -->
+  <script src="js/utils.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/classify.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/home.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/analytics.js"></script>
+  <script src="js/nutrition.js"></script>
+  <script src="js/contact.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

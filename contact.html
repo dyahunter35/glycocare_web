@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="التواصل والتنبيهات في سُكّري بلس - نموذج استرشادي للتواصل مع الفريق الطبي، تنبيهات الأمان، والأسئلة الشائعة حول حماية البيانات والقراءات.">
+  <title>التواصل والتنبيهات | سُكّري بلس</title>
+  
+  <!-- الخطوط والأيقونات -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- ملف التنسيقات الرئيسية -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- شاشة التحميل -->
+  <div id="app-loader">
+    <div class="loader-pulse"><i class="fas fa-droplet"></i></div>
+    <div class="loader-logo"><span>سُكّري <span>بلس</span></span></div>
+  </div>
+
+  <!-- الهيدر وشريط التنقل -->
+  <header class="site-header">
+    <nav class="navbar" aria-label="التنقل الرئيسي">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-icon-wrapper"><i class="fas fa-droplet"></i></div>
+        <div class="brand-text-group">
+          <span class="brand-name">سُكّري <span>بلس</span></span>
+          <span class="brand-slogan">قياساتك أوضح، ومتابعتك أسهل</span>
+        </div>
+      </a>
+
+      <ul class="nav-menu" id="nav-menu-list">
+        <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> الصفحة الرئيسية</a></li>
+        <li><a href="dashboard.html" class="nav-link"><i class="fas fa-chart-line"></i> لوحة القياسات</a></li>
+        <li><a href="analytics.html" class="nav-link"><i class="fas fa-chart-pie"></i> التقارير</a></li>
+        <li><a href="nutrition.html" class="nav-link"><i class="fas fa-utensils"></i> الدليل الصحي</a></li>
+        <li><a href="contact.html" class="nav-link active"><i class="fas fa-user-md"></i> التواصل والطوارئ</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="theme-toggle" title="تبديل الوضع الليلي" aria-label="تبديل الوضع الليلي">
+          <i class="fas fa-moon"></i>
+        </button>
+        <a href="dashboard.html" class="btn btn-primary btn-sm"><i class="fas fa-plus-circle"></i> أضف قراءة</a>
+        <button class="mobile-toggle" id="mobile-toggle-btn" aria-label="القائمة البرمجية للهاتف"><i class="fas fa-bars"></i></button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- المحتوى الرئيسي -->
+  <main class="container">
+    
+    <!-- ترويسة الصفحة -->
+    <div class="section-header" style="text-align: right; margin-bottom: 2.5rem;">
+      <span class="section-subtitle">إرسال استفسار وإرشادات السلامة</span>
+      <h1 class="section-title">التواصل والتنبيهات الصحية</h1>
+      <p class="section-desc">نموذج محاكاة للتواصل مع الطبيب المتابع، معلومات العيادة، وتنبيهات الأمان الطارئة.</p>
+    </div>
+
+    <!-- بطاقات تنبيهات السلامة الهامة في أعلى الصفحة -->
+    <section class="card" style="border-right: 6px solid var(--status-high); margin-bottom: 3rem; background: var(--status-high-bg);">
+      <div style="display: flex; align-items: flex-start; gap: 1.25rem;">
+        <div style="font-size: 2.2rem; color: var(--status-high); flex-shrink: 0;"><i class="fas fa-shield-cat"></i></div>
+        <div>
+          <h2 style="font-size: 1.3rem; font-weight: 800; color: var(--status-high); margin-bottom: 0.5rem;">تنبيهات سلامة صحية هامة</h2>
+          <ul style="list-style: square; padding-right: 1.25rem; font-size: 0.95rem; color: var(--text-main); line-height: 1.7;">
+            <li><strong>إعادة التحقق:</strong> ينصح بإعادة قياس السكر فوراً عند ظهور قراءة غير معتادة أو إذا كانت لا تتوافق مع شعورك بالسلامة.</li>
+            <li><strong>عدم تغيير الجرعات:</strong> لا تقم مطلقاً بتغيير جرعات الإنسولين أو أدوية السكري بناءً على معلومات الموقع دون مراجعة طبيبك المباشر.</li>
+            <li><strong>القراءات المتكررة خارج الهدف:</strong> تواصل فوراً مع فريقك الصحي عند تكرار القراءات المرتفعة أو المنخفضة لعدة أيام متتالية.</li>
+            <li><strong>حالات الطوارئ:</strong> اتصل برقم الطوارئ المعتمد في بلدك فوراً عند وجود أعراض هبوط حاد أو فقدان للوعي.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- الشبكة الرئيسية: النموذج + معلومات العيادة -->
+    <div class="contact-grid" style="margin-bottom: 4rem;">
+
+      <!-- نموذج التواصل مع الطبيب (محاكاة) -->
+      <section class="card">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
+          <h2 style="font-size: 1.3rem; font-weight: 800; color: var(--dark-blue); display: flex; align-items: center; gap: 0.5rem;">
+            <i class="fas fa-paper-plane" style="color: var(--primary-blue);"></i> نموذج التواصل مع الطبيب (محاكاة)
+          </h2>
+          <span class="pill-tag">واجهة تجريبية</span>
+        </div>
+
+        <form id="doctor-contact-form" novalidate>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label" for="contact-name">الاسم الكامل <span style="color:var(--status-high)">*</span></label>
+              <input type="text" id="contact-name" class="form-control" placeholder="أدخل اسمك الثلاثي" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="contact-file-id">رقم الملف الطبي / المعرّف</label>
+              <input type="text" id="contact-file-id" class="form-control" placeholder="مثال: MED-9942 (اختياري)">
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label" for="contact-email">البريد الإلكتروني <span style="color:var(--status-high)">*</span></label>
+              <input type="email" id="contact-email" class="form-control" placeholder="example@domain.com" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="contact-phone">رقم الهاتف</label>
+              <input type="tel" id="contact-phone" class="form-control" placeholder="05xxxxxxxx">
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label" for="contact-subject">موضوع الرسالة</label>
+              <input type="text" id="contact-subject" class="form-control" placeholder="عنوان مختصر للطلب">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="contact-inquiry-type">نوع الاستفسار <span style="color:var(--status-high)">*</span></label>
+              <select id="contact-inquiry-type" class="form-control" required>
+                <option value="review" selected>مراجعة القراءات والأداء</option>
+                <option value="appointment">استفسار عن موعد الزيارة</option>
+                <option value="nutrition">استفسار غذائي ونشاط</option>
+                <option value="technical">مشكلة تقنية في المنصة</option>
+                <option value="general">استفسار عام</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="contact-message">نص الرسالة والاستفسار <span style="color:var(--status-high)">*</span></label>
+            <textarea id="contact-message" class="form-control" rows="4" placeholder="اكتب تفاصيل استفسارك أو الأعراض التي تشعر بها..." required></textarea>
+          </div>
+
+          <div class="form-group" style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem;">
+            <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; cursor: pointer;">
+              <input type="checkbox" id="contact-attach-summary" checked>
+              إرفاق ملخص أحدث القراءات المسجلة تلقائياً مع الرسالة.
+            </label>
+            <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; cursor: pointer;">
+              <input type="checkbox" id="contact-consent" required>
+              أقر بأن هذه محاكاة تجريبية مخصصة لمشروع التخرج ولا يتم إرسال بيانات حقيقية. <span style="color:var(--status-high)">*</span>
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+            <i class="fas fa-paper-plane"></i> إرسال الطلب (تجريبي)
+          </button>
+        </form>
+      </section>
+
+      <!-- بطاقات بيانات التواصل التجريبية -->
+      <section class="info-cards-stack">
+        <div class="card" style="padding: 1.5rem;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+            <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--dark-blue);">معلومات العيادة المتابعة</h3>
+            <span class="badge badge-borderline">بيانات تجريبية</span>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <div class="contact-info-card">
+              <div class="contact-info-icon"><i class="fas fa-phone-volume"></i></div>
+              <div>
+                <div style="font-size: 0.85rem; color: var(--text-muted);">رقم الاستفسارات الهاتفية</div>
+                <div style="font-weight: 800; color: var(--dark-blue);">9200 00 123 (تجريبي)</div>
+              </div>
+            </div>
+
+            <div class="contact-info-card">
+              <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
+              <div>
+                <div style="font-size: 0.85rem; color: var(--text-muted);">البريد الإلكتروني للعيادة</div>
+                <div style="font-weight: 800; color: var(--dark-blue);">support@sukkari-plus.demo</div>
+              </div>
+            </div>
+
+            <div class="contact-info-card">
+              <div class="contact-info-icon"><i class="fas fa-clock"></i></div>
+              <div>
+                <div style="font-size: 0.85rem; color: var(--text-muted);">أوقات المتابعة والرد</div>
+                <div style="font-weight: 700; color: var(--dark-blue);">الأحد - الخميس (8:00 ص - 4:00 م)</div>
+              </div>
+            </div>
+
+            <div class="contact-info-card">
+              <div class="contact-info-icon"><i class="fas fa-location-dot"></i></div>
+              <div>
+                <div style="font-size: 0.85rem; color: var(--text-muted);">موقع العيادة المرجعية</div>
+                <div style="font-weight: 700; color: var(--dark-blue);">المركز الطبي الجامعي - قسم السكري</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- قسم الأسئلة الشائعة (Accordion) -->
+    <section class="card" style="margin-bottom: 3rem; padding: 2.5rem;">
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <span class="section-subtitle">إجابات عن التساؤلات الأكثر تكراراً</span>
+        <h2 class="section-title" style="font-size: 1.8rem;">الأسئلة الشائعة حول المنصة والبيانات</h2>
+      </div>
+
+      <div class="accordion">
+        
+        <div class="accordion-item active">
+          <button class="accordion-header" aria-expanded="true">
+            <span>أين تُحفظ قراءاتي المسجلة في الموقع؟</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-content">
+              تُحفظ جميع القراءات في التخزين المحلي لمتصفحك الخاص (localStorage). البيانات لا تنتقل لأي خادم خارجي وتظل بأمان على جهازك الحالي.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header" aria-expanded="false">
+            <span>هل يعمل الموقع وتطبيقه دون الحاجة لتسجيل حساب؟</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-content">
+              نعم بالكامل! الموقع يعمل كواجهة Front-end ذاتية ولا يتطلب أي تسجيل دخول أو إنشاء حساب بالبريد الإلكتروني.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header" aria-expanded="false">
+            <span>هل منصة «سُكّري بلس» بديل عن الاستشارة الطبية المباشرة؟</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-content">
+              لا، المنصة مشروع تخرج تعليمي مخصص لمتابعة السجلات وتسهيل الإحصائيات البصرية، ولا يقدم تشخيصاً ولا يغني عن خطة الطبيب المتابع.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header" aria-expanded="false">
+            <span>هل يمكن تعديل القراءة بعد حفظها في السجل؟</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-content">
+              نعم، يمكنك النقر على أيقونة التعديل (القلم) بجوار أي قراءة في جدول السجل باللوحة، وسيتم تعبئة البيانات في النموذج لتعديلها وحفظها مجدداً.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header" aria-expanded="false">
+            <span>كيف يمكنني مسح أو استعادة البيانات التجريبية؟</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-content">
+              يمكنك النقر على زر "مسح الكل" في لوحة القياسات لحذف كافة البيانات، أو النقر على "استعادة البيانات" لإعادة تحميل عينة القراءات الاسترشادية في أي وقت.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header" aria-expanded="false">
+            <span>هل تنتقل بياناتي تلقائياً إذا فتحت الموقع من جهاز آخر؟</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-content">
+              بما أن البيانات مخزنة في متصفح جهازك الحالي (localStorage)، فإنها لا تنتقل تلقائياً لجهاز آخر. يمكنك استخدام ميزة "تصدير CSV" لنقل سجل قراءاتك بسهولة.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- التذييل -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><i class="fas fa-droplet" style="color: var(--teal);"></i> سُكّري بلس</div>
+        <p class="footer-desc">منصة عربية تعليمية تم تطويرها كبرنامج تخرج جامعي لمساعدة المرضى على متابعة قياسات سكر الدم اليومية.</p>
+        <div class="footer-disclaimer-box">
+          <i class="fas fa-triangle-exclamation" style="color: var(--status-borderline);"></i> اتصل برقم الطوارئ المعتمد في بلدك عند وجود حالة طارئة.
+        </div>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">روابط الصفحات</h4>
+        <ul class="footer-links">
+          <li><a href="index.html"><i class="fas fa-chevron-left"></i> الصفحة الرئيسية</a></li>
+          <li><a href="dashboard.html"><i class="fas fa-chevron-left"></i> لوحة القياسات</a></li>
+          <li><a href="analytics.html"><i class="fas fa-chevron-left"></i> التقارير الإحصائية</a></li>
+          <li><a href="nutrition.html"><i class="fas fa-chevron-left"></i> الدليل الصحي وغذاء</a></li>
+          <li><a href="contact.html"><i class="fas fa-chevron-left"></i> التواصل والطوارئ</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">المصادر الصحية المعتمدة</h4>
+        <ul class="footer-links">
+          <li><a href="https://diabetes.org/living-with-diabetes/treatment-care/checking-your-blood-sugar" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square"></i> الجمعية الأمريكية للسكري</a></li>
+          <li><a href="https://www.cdc.gov/diabetes/treatment/treatment-low-blood-sugar-hypoglycemia.html" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square"></i> مراكز الـ CDC - الهبوط</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>حقوق الطبع والتأليف &copy; <span id="current-year">2026</span> - مشروع جامعي تعليمي لتصميم واجهات الويب</div>
+    </div>
+  </footer>
+
+  <!-- زر العودة للأعلى -->
+  <button class="back-to-top" id="back-to-top" aria-label="العودة لأعلى الصفحة"><i class="fas fa-arrow-up"></i></button>
+
+  <!-- البرمجة التفاعلية (مقسمة إلى وحدات) -->
+  <script src="js/utils.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/classify.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/home.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/analytics.js"></script>
+  <script src="js/nutrition.js"></script>
+  <script src="js/contact.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

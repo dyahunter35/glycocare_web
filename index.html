@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="سُكّري بلس - منصة عربية حديثة ومتكاملة لمتابعة وتسجيل قياسات سكر الدم، تحليل القراءات، وعرض الإحصائيات والتوجيهات التغذوية الصحيحة.">
+  <title>سُكّري بلس | منصة متابعة قياسات سكر الدم</title>
+  
+  <!-- الخطوط والأيقونات -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- ملف التنسيقات الرئيسية -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 1. شاشة التحميل (App Loader) -->
+  <div id="app-loader">
+    <div class="loader-pulse">
+      <i class="fas fa-droplet"></i>
+    </div>
+    <div class="loader-logo">
+      <span>سُكّري <span>بلس</span></span>
+    </div>
+    <p style="color: #94A3B8; font-size: 0.9rem;">جاري تحميل المنصة...</p>
+  </div>
+
+  <!-- 2. الهيدر وشريط التنقل ثابت الزجاجي -->
+  <header class="site-header">
+    <nav class="navbar" aria-label="التنقل الرئيسي">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-icon-wrapper">
+          <i class="fas fa-droplet"></i>
+        </div>
+        <div class="brand-text-group">
+          <span class="brand-name">سُكّري <span>بلس</span></span>
+          <span class="brand-slogan">قياساتك أوضح، ومتابعتك أسهل</span>
+        </div>
+      </a>
+
+      <ul class="nav-menu" id="nav-menu-list">
+        <li><a href="index.html" class="nav-link active"><i class="fas fa-home"></i> الصفحة الرئيسية</a></li>
+        <li><a href="dashboard.html" class="nav-link"><i class="fas fa-chart-line"></i> لوحة القياسات</a></li>
+        <li><a href="analytics.html" class="nav-link"><i class="fas fa-chart-pie"></i> التقارير</a></li>
+        <li><a href="nutrition.html" class="nav-link"><i class="fas fa-utensils"></i> الدليل الصحي</a></li>
+        <li><a href="contact.html" class="nav-link"><i class="fas fa-user-md"></i> التواصل والطوارئ</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="theme-toggle" title="تبديل الوضع الليلي" aria-label="تبديل الوضع الليلي">
+          <i class="fas fa-moon"></i>
+        </button>
+        <a href="dashboard.html" class="btn btn-primary btn-sm">
+          <i class="fas fa-plus-circle"></i> أضف قراءة
+        </a>
+        <button class="mobile-toggle" id="mobile-toggle-btn" aria-label="القائمة البرمجية للهاتف" aria-expanded="false">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- 3. المحتوى الرئيسي للموقع -->
+  <main>
+
+    <!-- الواجهة الافتتاحية (Hero Section) -->
+    <section class="hero-section">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div style="display: inline-block;">
+            <span class="badge badge-target" style="padding: 0.5rem 1rem; font-size: 0.9rem;">
+              <i class="fas fa-shield-halved"></i> منصة عربية لمتابعة القياسات اليومية
+            </span>
+          </div>
+          <h1 class="hero-title">
+            تابع سكر الدم <br><span>بثقة ووضوح</span>
+          </h1>
+          <p class="hero-description">
+            سجّل قياساتك اليومية، راقب تغيراتها، واطّلع على ملخصات ورسوم بيانية تساعدك على فهم نمط قراءاتك وتنظيم حياتك الصحية بالتعاون مع فريقك الطبي.
+          </p>
+          <div class="hero-buttons">
+            <a href="dashboard.html" class="btn btn-primary">
+              <i class="fas fa-plus"></i> سجّل أول قراءة
+            </a>
+            <a href="dashboard.html" class="btn btn-secondary">
+              <i class="fas fa-th-large"></i> استعرض لوحة المتابعة
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <!-- البطاقة العائمة 1 -->
+          <div class="floating-card floating-card-1">
+            <div class="float-icon" style="background: var(--status-target-bg); color: var(--status-target);">
+              <i class="fas fa-check"></i>
+            </div>
+            <div>
+              <div style="font-weight: 800; color: var(--dark-blue); font-size: 1.1rem;">118 mg/dL</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">ضمن النطاق المستهدف</div>
+            </div>
+          </div>
+
+          <!-- البطاقة الرئيسية في الواجهة -->
+          <div class="hero-card-preview">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem;">
+              <div style="font-weight: 800; color: var(--dark-blue);">معاينة القياس الصباحي</div>
+              <span class="badge badge-target">صائم</span>
+            </div>
+            <div style="text-align: center; margin: 1.5rem 0;">
+              <div style="font-size: 3.5rem; font-weight: 900; color: var(--primary-blue); line-height: 1;">
+                118 <span style="font-size: 1.2rem; color: var(--text-muted); font-weight: 600;">mg/dL</span>
+              </div>
+              <p style="color: var(--status-target); font-weight: 700; margin-top: 0.5rem; font-size: 0.95rem;">
+                <i class="fas fa-heart-pulse"></i> قراءة متوازنة وضمن الهدف
+              </p>
+            </div>
+            <div style="background: var(--bg-app); border-radius: 12px; padding: 1rem; margin-top: 1rem;">
+              <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.3rem;">
+                <span>النطاق الموصى به</span>
+                <span>80 - 130 mg/dL</span>
+              </div>
+              <div style="height: 8px; background: var(--border-color); border-radius: 4px; overflow: hidden;">
+                <div style="width: 65%; height: 100%; background: var(--status-target); border-radius: 4px;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- البطاقة العائمة 2 -->
+          <div class="floating-card floating-card-2">
+            <div class="float-icon" style="background: var(--light-blue); color: var(--primary-blue);">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">متوسط الأسبوع</div>
+              <div style="font-weight: 800; color: var(--dark-blue); font-size: 1.05rem;">124 mg/dL</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- قسم الإحصائيات السريعة -->
+    <section class="container" style="padding-top: 0;">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon" style="background: var(--light-blue); color: var(--primary-blue);">
+            <i class="fas fa-clipboard-list"></i>
+          </div>
+          <div class="stat-info">
+            <span class="stat-label">القراءات المسجلة</span>
+            <span class="stat-value" id="stat-total-readings">12</span>
+            <span class="stat-unit">قراءة في المتصفح</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon" style="background: var(--status-target-bg); color: var(--status-target);">
+            <i class="fas fa-calculator"></i>
+          </div>
+          <div class="stat-info">
+            <span class="stat-label">متوسط آخر 7 أيام</span>
+            <span class="stat-value" id="stat-7day-avg">122 mg/dL</span>
+            <span class="stat-unit">معدل متوازن</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon" style="background: var(--status-borderline-bg); color: var(--status-borderline);">
+            <i class="fas fa-bullseye"></i>
+          </div>
+          <div class="stat-info">
+            <span class="stat-label">ضمن النطاق المستهدف</span>
+            <span class="stat-value" id="stat-target-percent">75%</span>
+            <span class="stat-unit">من إجمالي القياسات</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon" style="background: var(--status-low-bg); color: var(--status-low);">
+            <i class="fas fa-clock-rotate-left"></i>
+          </div>
+          <div class="stat-info">
+            <span class="stat-label">آخر قراءة مسجلة</span>
+            <span class="stat-value" id="stat-last-value">118 mg/dL</span>
+            <span class="stat-unit">اليوم الصباحي</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- قسم كيف تعمل المنصة (3 خطوات) -->
+    <section class="container" style="padding-top: 3rem;">
+      <div class="section-header">
+        <span class="section-subtitle">طريقة الاستخدام</span>
+        <h2 class="section-title">ثلاث خطوات بسيطة لمتابعة صحية دقيقة</h2>
+        <p class="section-desc">تم تصميم المنصة لتسهيل عملية التسجيل اليومية وتوفير نتائج فورية منظمة.</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <div class="step-icon"><i class="fas fa-pen-to-square"></i></div>
+          <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--dark-blue); margin-bottom: 0.75rem;">سجّل القراءة</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;">
+            أدخل قيمة قياس سكر الدم بوحدة mg/dL وحدد التوقيت (صائم، بعد الوجبة، أو قبل النوم).
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <div class="step-icon"><i class="fas fa-stethoscope"></i></div>
+          <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--dark-blue); margin-bottom: 0.75rem;">احصل على التصنيف</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;">
+            تعرّف فوراً على تصنيف قراءتك (ضمن الهدف، مرتفعة، أو منخفضة) وفق المعايير الاسترشادية العامة.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <div class="step-icon"><i class="fas fa-chart-line"></i></div>
+          <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--dark-blue); margin-bottom: 0.75rem;">راقب التقارير</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;">
+            اطّلع على المخططات البيانية والسجل التاريخي لمشاركة بياناتك بسهولة مع طبيبك المختص.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- قسم مزايا المنصة (6 مزايا) -->
+    <section class="container">
+      <div class="section-header">
+        <span class="section-subtitle">مميزات سُكّري بلس</span>
+        <h2 class="section-title">كل ما تحتاجه لإدارة قياساتك بمرونة</h2>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+          <div>
+            <h3 class="feature-title">تسجيل سريع ومباشر</h3>
+            <p class="feature-desc">إدخال سلس للقراءة والوقت والملاحظات في ثوانٍ معدودة دون تعقيد.</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-tags"></i></div>
+          <div>
+            <h3 class="feature-title">تصنيف فوري واضح</h3>
+            <p class="feature-desc">توضيح ملون وتفاعلي لحالة القراءة لمساعدتك على اتخاذ التصرف الصحيح.</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-database"></i></div>
+          <div>
+            <h3 class="feature-title">سجل آمن بالمتصفح</h3>
+            <p class="feature-desc">حفظ تلقائي لجميع قراءاتك في المتصفح الخاص بك دون الحاجة لقواعد بيانات خارجية.</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-chart-pie"></i></div>
+          <div>
+            <h3 class="feature-title">تقارير مرئية وتفاعلية</h3>
+            <p class="feature-desc">رسوم بيانية خطية ودائرية تظهر التغيرات الزمانية ونسبة السيطرة على السكر.</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-carrot"></i></div>
+          <div>
+            <h3 class="feature-title">دليل غذائي متوازن</h3>
+            <p class="feature-desc">نصائح وإرشادات حول نموذج الطبق الصحي والبدائل الغذائية المناسبة لمريض السكري.</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-user-doctor"></i></div>
+          <div>
+            <h3 class="feature-title">تواصل مبسط مع الطبيب</h3>
+            <p class="feature-desc">إمكانية طباعة السجل أو تصديره وملء نموذج التواصل الاسترشادي للطبيب.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- نصيحة اليوم المتغيرة -->
+    <section class="container">
+      <div class="tip-box">
+        <div class="tip-icon">
+          <i class="fas fa-lightbulb"></i>
+        </div>
+        <div class="tip-content">
+          <h3>نصيحة اليوم الصحية</h3>
+          <p id="daily-tip-text">سجّل وقت القياس وحالة الوجبة بدقة للمساعدة في فهم نمط تغير السكر وتحديد العوامل المؤثرة.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- دعوة إلى الاستخدام (CTA Section) -->
+    <section class="container" style="text-align: center; padding: 4rem 1.5rem;">
+      <div class="card" style="background: linear-gradient(135deg, var(--light-blue), var(--bg-card)); border-color: var(--teal); padding: 3.5rem 2rem;">
+        <h2 style="font-size: 2.2rem; font-weight: 800; color: var(--dark-blue); margin-bottom: 1rem;">ابدأ تنظيم قياساتك اليوم</h2>
+        <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto 2rem; line-height: 1.7;">
+          انتقل إلى لوحة القياسات وابدأ بإضافة قراءتك الأولى لمتابعة مستويات سكر الدم بدقة ووضوح.
+        </p>
+        <a href="dashboard.html" class="btn btn-primary btn-teal">
+          <i class="fas fa-arrow-left"></i> الانتقال لصفحة إضافة القراءة
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 4. التذييل الرئيسي (Footer) -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <i class="fas fa-droplet" style="color: var(--teal);"></i> سُكّري بلس
+        </div>
+        <p class="footer-desc">
+          منصة ويب عربية تعليمية تم تطويرها كبرنامج تخرج جامعي لمساعدة المرضى على متابعة قياسات سكر الدم اليومية وتوفير سجلات مرئية منظمة.
+        </p>
+        <div class="footer-disclaimer-box">
+          <i class="fas fa-triangle-exclamation" style="color: var(--status-borderline);"></i>
+          هذه المنصة مشروع تعليمي لمتابعة البيانات ولا تقدم تشخيصًا أو خطة علاجية. تختلف أهداف سكر الدم من شخص إلى آخر ويحددها الفريق الصحي.
+        </div>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">روابط الصفحات</h4>
+        <ul class="footer-links">
+          <li><a href="index.html"><i class="fas fa-chevron-left"></i> الصفحة الرئيسية</a></li>
+          <li><a href="dashboard.html"><i class="fas fa-chevron-left"></i> لوحة القياسات</a></li>
+          <li><a href="analytics.html"><i class="fas fa-chevron-left"></i> التقارير الإحصائية</a></li>
+          <li><a href="nutrition.html"><i class="fas fa-chevron-left"></i> الدليل الصحي والغذاء</a></li>
+          <li><a href="contact.html"><i class="fas fa-chevron-left"></i> التواصل والطوارئ</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">المصادر الصحية المعتمدة</h4>
+        <ul class="footer-links">
+          <li>
+            <a href="https://diabetes.org/living-with-diabetes/treatment-care/checking-your-blood-sugar" target="_blank" rel="noopener noreferrer">
+              <i class="fas fa-arrow-up-right-from-square"></i> الجمعية الأمريكية للسكري (ADA)
+            </a>
+          </li>
+          <li>
+            <a href="https://www.cdc.gov/diabetes/treatment/treatment-low-blood-sugar-hypoglycemia.html" target="_blank" rel="noopener noreferrer">
+              <i class="fas fa-arrow-up-right-from-square"></i> مراكز مكافحة الأمراض (CDC) - الهبوط
+            </a>
+          </li>
+          <li>
+            <a href="https://www.cdc.gov/diabetes/treatment/continuous-glucose-monitors.html" target="_blank" rel="noopener noreferrer">
+              <i class="fas fa-arrow-up-right-from-square"></i> مراكز الـ CDC - أجهزة المراقبة
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>حقوق الطبع والتأليف &copy; <span id="current-year">2026</span> - مشروع جامعي تعليمي لتصميم واجهات الويب</div>
+      <div>سُكّري بلس | تطوير Front-end بالكامل</div>
+    </div>
+  </footer>
+
+  <!-- زر العودة للأعلى -->
+  <button class="back-to-top" id="back-to-top" aria-label="العودة لأعلى الصفحة">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- البرمجة التفاعلية (مقسمة إلى وحدات) -->
+  <script src="js/utils.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/classify.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/home.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/analytics.js"></script>
+  <script src="js/nutrition.js"></script>
+  <script src="js/contact.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

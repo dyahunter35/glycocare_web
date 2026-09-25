@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="الدليل الصحي والتغذية في سُكّري بلس - نموذج الطبق المتوازن، بدائل الوجبات الصحية، وعادات يومية لدعم السيطرة على سكر الدم.">
+  <title>الدليل الصحي والتغذية | سُكّري بلس</title>
+  
+  <!-- الخطوط والأيقونات -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- ملف التنسيقات الرئيسية -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- شاشة التحميل -->
+  <div id="app-loader">
+    <div class="loader-pulse"><i class="fas fa-droplet"></i></div>
+    <div class="loader-logo"><span>سُكّري <span>بلس</span></span></div>
+  </div>
+
+  <!-- الهيدر وشريط التنقل -->
+  <header class="site-header">
+    <nav class="navbar" aria-label="التنقل الرئيسي">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-icon-wrapper"><i class="fas fa-droplet"></i></div>
+        <div class="brand-text-group">
+          <span class="brand-name">سُكّري <span>بلس</span></span>
+          <span class="brand-slogan">قياساتك أوضح، ومتابعتك أسهل</span>
+        </div>
+      </a>
+
+      <ul class="nav-menu" id="nav-menu-list">
+        <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> الصفحة الرئيسية</a></li>
+        <li><a href="dashboard.html" class="nav-link"><i class="fas fa-chart-line"></i> لوحة القياسات</a></li>
+        <li><a href="analytics.html" class="nav-link"><i class="fas fa-chart-pie"></i> التقارير</a></li>
+        <li><a href="nutrition.html" class="nav-link active"><i class="fas fa-utensils"></i> الدليل الصحي</a></li>
+        <li><a href="contact.html" class="nav-link"><i class="fas fa-user-md"></i> التواصل والطوارئ</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="theme-toggle" title="تبديل الوضع الليلي" aria-label="تبديل الوضع الليلي">
+          <i class="fas fa-moon"></i>
+        </button>
+        <a href="dashboard.html" class="btn btn-primary btn-sm"><i class="fas fa-plus-circle"></i> أضف قراءة</a>
+        <button class="mobile-toggle" id="mobile-toggle-btn" aria-label="القائمة البرمجية للهاتف"><i class="fas fa-bars"></i></button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- المحتوى الرئيسي -->
+  <main class="container">
+    
+    <!-- ترويسة الصفحة -->
+    <div class="section-header" style="text-align: right; margin-bottom: 2.5rem;">
+      <span class="section-subtitle">التغذية ونمط الحياة المتوازن</span>
+      <h1 class="section-title">الدليل الصحي والتغذية</h1>
+      <p class="section-desc">معلومات عامة تساعد على تنظيم الوجبات والعادات اليومية بالتعاون مع فريقك الصحي المتابع.</p>
+    </div>
+
+    <!-- قسم نموذج الطبق المتوازن (Visual Plate Guide) -->
+    <section class="plate-model-section">
+      <div class="plate-grid">
+        <div>
+          <span class="badge badge-target" style="margin-bottom: 0.75rem;">نموذج معتمد استرشادي</span>
+          <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--dark-blue); margin-bottom: 1rem;">طريقة الطبق المتوازن لمرضى السكري</h2>
+          <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem;">
+            تساعد قاعدة الطبق الصحي على التحكم في كميات الكربوهيدرات وتنظيم ارتفاع السكر بعد الوجبة دون الحاجة لحسابات معقدة.
+          </p>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.95rem;">
+            <li style="display: flex; align-items: center; gap: 0.75rem;">
+              <span style="width: 14px; height: 14px; border-radius: 50%; background-color: #2E9F6B;"></span>
+              <strong>نصف الطبق (50%):</strong> خضروات غير نشوية (خيار، خس، بروكلي، سبانخ، فلفل رومي).
+            </li>
+            <li style="display: flex; align-items: center; gap: 0.75rem;">
+              <span style="width: 14px; height: 14px; border-radius: 50%; background-color: #F28C45;"></span>
+              <strong>ربع الطبق (25%):</strong> مصادر بروتين قليلة الدهون (دجاج مشوي، سمك، بيض، أجبان خفيفة).
+            </li>
+            <li style="display: flex; align-items: center; gap: 0.75rem;">
+              <span style="width: 14px; height: 14px; border-radius: 50%; background-color: #E8B84A;"></span>
+              <strong>ربع الطبق (25%):</strong> كربوهيدرات معقدة ونشويات (أرز بني، خبز قمح كامل، شوفان، عدس).
+            </li>
+            <li style="display: flex; align-items: center; gap: 0.75rem;">
+              <span style="width: 14px; height: 14px; border-radius: 50%; background-color: var(--primary-blue);"></span>
+              <strong>المشروب الأساسي:</strong> الماء النقية أو المشروبات غير المحلاة بالسكر.
+            </li>
+          </ul>
+        </div>
+
+        <!-- الرسم التفاعلي البصري للطبق -->
+        <div class="plate-visual">
+          <div class="plate-part plate-veggies">
+            <i class="fas fa-carrot" style="font-size: 1.8rem; margin-bottom: 0.3rem;"></i>
+            <span>نصف الطبق<br>خضروات</span>
+          </div>
+          <div class="plate-part plate-protein">
+            <i class="fas fa-drumstick-bite" style="font-size: 1.4rem; margin-bottom: 0.3rem;"></i>
+            <span>ربع بروتين</span>
+          </div>
+          <div class="plate-part plate-carbs">
+            <i class="fas fa-wheat-awn" style="font-size: 1.4rem; margin-bottom: 0.3rem;"></i>
+            <span>ربع نشويات</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- قسم بطاقات الوجبات الموصى بها والتصفية -->
+    <section style="margin-bottom: 4rem;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--dark-blue);">خيارات وجبات وبدائل مغذية</h2>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">اختر الفئة أو استخدم البحث للاستعراض.</p>
+        </div>
+
+        <div class="search-box" style="max-width: 320px;">
+          <i class="fas fa-search"></i>
+          <input type="text" id="nutrition-search" class="form-control" placeholder="ابحث عن وجبة أو مكون...">
+        </div>
+      </div>
+
+      <!-- أزرار التصفية الفئوية -->
+      <div class="nutrition-filters">
+        <button class="btn btn-secondary btn-sm nutri-filter-btn active" data-category="all">جميع الوجبات</button>
+        <button class="btn btn-secondary btn-sm nutri-filter-btn" data-category="breakfast">الإفطار</button>
+        <button class="btn btn-secondary btn-sm nutri-filter-btn" data-category="lunch">الغداء</button>
+        <button class="btn btn-secondary btn-sm nutri-filter-btn" data-category="dinner">العشاء</button>
+        <button class="btn btn-secondary btn-sm nutri-filter-btn" data-category="snacks">الوجبات الخفيفة</button>
+        <button class="btn btn-secondary btn-sm nutri-filter-btn" data-category="beverages">المشروبات</button>
+        <button class="btn btn-secondary btn-sm nutri-filter-btn" data-category="alternatives">بدائل مقترحة</button>
+      </div>
+
+      <!-- شبكة بطاقات الوجبات ديناميكياً بواسطة JS -->
+      <div class="nutrition-grid" id="nutrition-cards-container">
+        <!-- توليد البطاقات عبر JavaScript -->
+      </div>
+    </section>
+
+    <!-- قسم بدّل هذا بذاك (Swap This for That) -->
+    <section class="card" style="margin-bottom: 4rem; padding: 2.5rem;">
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <span class="section-subtitle">تعديلات بسيطة تصنع فارقاً كبيراً</span>
+        <h2 class="section-title" style="font-size: 1.8rem;">بدّل هذا بذاك (بدائل غذائية أذكى)</h2>
+      </div>
+
+      <div class="swap-grid">
+        <div class="swap-card">
+          <div class="swap-from">
+            <i class="fas fa-bottle-water" style="font-size: 1.8rem; margin-bottom: 0.5rem; display: block;"></i>
+            <strong>مشروب غازي محلى</strong>
+          </div>
+          <div class="swap-arrow"><i class="fas fa-arrow-left-long"></i></div>
+          <div class="swap-to">
+            <i class="fas fa-glass-water" style="font-size: 1.8rem; margin-bottom: 0.5rem; display: block;"></i>
+            <strong>ماء أو شاي أخضر بالنعناع</strong>
+          </div>
+        </div>
+
+        <div class="swap-card">
+          <div class="swap-from">
+            <i class="fas fa-cookie-bite" style="font-size: 1.8rem; margin-bottom: 0.5rem; display: block;"></i>
+            <strong>قطعة كيك كبيرة محلاة</strong>
+          </div>
+          <div class="swap-arrow"><i class="fas fa-arrow-left-long"></i></div>
+          <div class="swap-to">
+            <i class="fas fa-apple-whole" style="font-size: 1.8rem; margin-bottom: 0.5rem; display: block;"></i>
+            <strong>تفاحة طازجة مع حبات لوز</strong>
+          </div>
+        </div>
+
+        <div class="swap-card">
+          <div class="swap-from">
+            <i class="fas fa-bowl-food" style="font-size: 1.8rem; margin-bottom: 0.5rem; display: block;"></i>
+            <strong>وجبة مقلية بالزيت التالف</strong>
+          </div>
+          <div class="swap-arrow"><i class="fas fa-arrow-left-long"></i></div>
+          <div class="swap-to">
+            <i class="fas fa-fire" style="font-size: 1.8rem; margin-bottom: 0.5rem; display: block;"></i>
+            <strong>دجاج أو سمك مشوي في الفرن</strong>
+          </div>
+        </div>
+
+        <div class="swap-card">
+          <div class="swap-from">
+            <i class="fas fa-bread-slice" style="font-size: 1.8rem; margin-bottom: 0.5rem; display: block;"></i>
+            <strong>خبز أبيض مكرر</strong>
+          </div>
+          <div class="swap-arrow"><i class="fas fa-arrow-left-long"></i></div>
+          <div class="swap-to">
+            <i class="fas fa-wheat-field" style="font-size: 1.8rem; margin-bottom: 0.5rem; display: block;"></i>
+            <strong>خبز القمح الكامل الغني بالألياف</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- قسم عادات تساعد على المتابعة -->
+    <section class="card" style="background: linear-gradient(135deg, var(--light-blue), var(--bg-card)); border-color: var(--teal); padding: 2.5rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--dark-blue); margin-bottom: 1.5rem; text-align: center;">
+        <i class="fas fa-circle-check" style="color: var(--teal);"></i> عادات يومية تساعدك في الحفاظ على الهدف
+      </h2>
+
+      <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+        <div style="background: var(--bg-card); padding: 1.25rem; border-radius: 12px; border: 1px solid var(--border-color);">
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--dark-blue); margin-bottom: 0.5rem;">
+            <i class="fas fa-clock" style="color: var(--primary-blue);"></i> انتظام مواعيد الوجبات
+          </h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">تناول الطعام في مواعيد منتظمة يساعد الكبد والإنسولين على تنظيم السكر.</p>
+        </div>
+
+        <div style="background: var(--bg-card); padding: 1.25rem; border-radius: 12px; border: 1px solid var(--border-color);">
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--dark-blue); margin-bottom: 0.5rem;">
+            <i class="fas fa-pen" style="color: var(--primary-blue);"></i> التسجيل المباشر للقراءة
+          </h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">سجّل القراءة فور قياسها دون تأجيل لضمان عدم نسيان التفاصيل والملاحظات.</p>
+        </div>
+
+        <div style="background: var(--bg-card); padding: 1.25rem; border-radius: 12px; border: 1px solid var(--border-color);">
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--dark-blue); margin-bottom: 0.5rem;">
+            <i class="fas fa-droplet" style="color: var(--primary-blue);"></i> ترطيب الجسم بالماء
+          </h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">شرب 2 إلى 3 لتر ماء يومياً يساعد الكليتين على التخلص من السكر الزائد.</p>
+        </div>
+
+        <div style="background: var(--bg-card); padding: 1.25rem; border-radius: 12px; border: 1px solid var(--border-color);">
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--dark-blue); margin-bottom: 0.5rem;">
+            <i class="fas fa-user-doctor" style="color: var(--primary-blue);"></i> الاستشارة الفورية
+          </h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">تواصل مع طبيبك عند تكرار قراءات خارج النطاق لتعديل الجرعة أو الخطة.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- التذييل -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><i class="fas fa-droplet" style="color: var(--teal);"></i> سُكّري بلس</div>
+        <p class="footer-desc">منصة عربية تعليمية تم تطويرها كبرنامج تخرج جامعي لمساعدة المرضى على متابعة قياسات سكر الدم اليومية.</p>
+        <div class="footer-disclaimer-box">
+          <i class="fas fa-triangle-exclamation" style="color: var(--status-borderline);"></i> المعلومات الواردة عامة ولا تستبدل خطة اختصاصي التغذية أو الطبيب المتابع.
+        </div>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">روابط الصفحات</h4>
+        <ul class="footer-links">
+          <li><a href="index.html"><i class="fas fa-chevron-left"></i> الصفحة الرئيسية</a></li>
+          <li><a href="dashboard.html"><i class="fas fa-chevron-left"></i> لوحة القياسات</a></li>
+          <li><a href="analytics.html"><i class="fas fa-chevron-left"></i> التقارير الإحصائية</a></li>
+          <li><a href="nutrition.html"><i class="fas fa-chevron-left"></i> الدليل الصحي وغذاء</a></li>
+          <li><a href="contact.html"><i class="fas fa-chevron-left"></i> التواصل والطوارئ</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">المصادر الصحية المعتمدة</h4>
+        <ul class="footer-links">
+          <li><a href="https://diabetes.org/living-with-diabetes/treatment-care/checking-your-blood-sugar" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square"></i> الجمعية الأمريكية للسكري</a></li>
+          <li><a href="https://www.cdc.gov/diabetes/treatment/treatment-low-blood-sugar-hypoglycemia.html" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square"></i> مراكز الـ CDC - الهبوط</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>حقوق الطبع والتأليف &copy; <span id="current-year">2026</span> - مشروع جامعي تعليمي لتصميم واجهات الويب</div>
+    </div>
+  </footer>
+
+  <!-- زر العودة للأعلى -->
+  <button class="back-to-top" id="back-to-top" aria-label="العودة لأعلى الصفحة"><i class="fas fa-arrow-up"></i></button>
+
+  <!-- البرمجة التفاعلية (مقسمة إلى وحدات) -->
+  <script src="js/utils.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/classify.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/home.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/analytics.js"></script>
+  <script src="js/nutrition.js"></script>
+  <script src="js/contact.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

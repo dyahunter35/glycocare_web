@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="التقارير والإحصائيات في سُكّري بلس - رسوم بيانية تفاعلية، تحليل اتجاهات سكر الدم، وتلخيص النمط الأسبوعي والشهري.">
+  <title>التقارير والإحصائيات | سُكّري بلس</title>
+  
+  <!-- الخطوط والأيقونات -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- ملف التنسيقات الرئيسية -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- شاشة التحميل -->
+  <div id="app-loader">
+    <div class="loader-pulse"><i class="fas fa-droplet"></i></div>
+    <div class="loader-logo"><span>سُكّري <span>بلس</span></span></div>
+  </div>
+
+  <!-- الهيدر وشريط التنقل -->
+  <header class="site-header">
+    <nav class="navbar" aria-label="التنقل الرئيسي">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-icon-wrapper"><i class="fas fa-droplet"></i></div>
+        <div class="brand-text-group">
+          <span class="brand-name">سُكّري <span>بلس</span></span>
+          <span class="brand-slogan">قياساتك أوضح، ومتابعتك أسهل</span>
+        </div>
+      </a>
+
+      <ul class="nav-menu" id="nav-menu-list">
+        <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> الصفحة الرئيسية</a></li>
+        <li><a href="dashboard.html" class="nav-link"><i class="fas fa-chart-line"></i> لوحة القياسات</a></li>
+        <li><a href="analytics.html" class="nav-link active"><i class="fas fa-chart-pie"></i> التقارير</a></li>
+        <li><a href="nutrition.html" class="nav-link"><i class="fas fa-utensils"></i> الدليل الصحي</a></li>
+        <li><a href="contact.html" class="nav-link"><i class="fas fa-user-md"></i> التواصل والطوارئ</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="theme-toggle" title="تبديل الوضع الليلي" aria-label="تبديل الوضع الليلي">
+          <i class="fas fa-moon"></i>
+        </button>
+        <a href="dashboard.html" class="btn btn-primary btn-sm"><i class="fas fa-plus-circle"></i> أضف قراءة</a>
+        <button class="mobile-toggle" id="mobile-toggle-btn" aria-label="القائمة البرمجية للهاتف"><i class="fas fa-bars"></i></button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- المحتوى الرئيسي -->
+  <main class="container">
+
+    <!-- ترويسة الطباعة (تظهر فقط عند الطباعة) -->
+    <div class="print-header" aria-hidden="true">
+      <div class="print-header-brand"><i class="fas fa-droplet"></i> سُكّري بلس</div>
+      <h1>تقرير قياسات سكر الدم</h1>
+      <p>تاريخ الطباعة: <span id="print-date">--</span></p>
+    </div>
+
+    <!-- شريط ترويسة التقارير وأزرار الفترات -->
+    <div class="analytics-header-bar">
+      <div>
+        <span class="section-subtitle">التحليل البصري والتاريخي</span>
+        <h1 class="section-title" style="margin-bottom: 0.25rem;">التقارير والإحصائيات</h1>
+        <p class="section-desc">راجع اتجاه القراءات ومتوسطاتها خلال الفترات الزمنية المختلفة لفهم الاستجابة الصحية.</p>
+      </div>
+
+      <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;" class="no-print">
+        <!-- أزرار تبويب الفترة -->
+        <div class="period-tabs" aria-label="تحديد الفترة الزمنية">
+          <button class="period-tab active" data-period="7">آخر 7 أيام</button>
+          <button class="period-tab" data-period="14">آخر 14 يومًا</button>
+          <button class="period-tab" data-period="30">آخر 30 يومًا</button>
+          <button class="period-tab" data-period="0">جميع القراءات</button>
+        </div>
+
+        <button class="btn btn-secondary btn-sm" id="print-report-btn">
+          <i class="fas fa-print"></i> طباعة التقرير
+        </button>
+      </div>
+    </div>
+
+    <!-- حالة عدم وجود بيانات -->
+    <div id="analytics-empty-state" class="card" style="display: none; text-align: center; padding: 4rem 2rem; margin-top: 2rem;">
+      <div style="font-size: 3.5rem; color: var(--text-light); margin-bottom: 1rem;"><i class="fas fa-chart-line"></i></div>
+      <h2 style="font-size: 1.4rem; color: var(--dark-blue); margin-bottom: 0.5rem;">لا توجد قراءات كافية لعرض التقارير</h2>
+      <p style="color: var(--text-muted); font-size: 1rem; max-width: 500px; margin: 0 auto 1.5rem;">
+        يرجى إضافة بعض القراءات في لوحة المتابعة للتمكن من توليد الرسم البياني والإحصائيات.
+      </p>
+      <a href="dashboard.html" class="btn btn-primary"><i class="fas fa-plus"></i> إضافة قراءة جديدة</a>
+    </div>
+
+    <!-- المحتوى الرئيسي للتقارير -->
+    <div id="analytics-main-content">
+
+      <!-- بطاقات ملخص الإحصائيات -->
+      <div class="stats-grid" style="margin-top: 1rem; margin-bottom: 2rem;">
+        <div class="stat-card">
+          <div class="stat-icon" style="background: var(--light-blue); color: var(--primary-blue);"><i class="fas fa-calculator"></i></div>
+          <div class="stat-info">
+            <span class="stat-label">متوسط القراءات</span>
+            <span class="stat-value" id="rep-avg">--</span>
+            <span class="stat-unit">للفترة المحددة</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon" style="background: var(--status-high-bg); color: var(--status-high);"><i class="fas fa-arrow-up"></i></div>
+          <div class="stat-info">
+            <span class="stat-label">أعلى قراءة</span>
+            <span class="stat-value" id="rep-max">--</span>
+            <span class="stat-unit">أقصى قيمة مسجلة</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon" style="background: var(--status-low-bg); color: var(--status-low);"><i class="fas fa-arrow-down"></i></div>
+          <div class="stat-info">
+            <span class="stat-label">أقل قراءة</span>
+            <span class="stat-value" id="rep-min">--</span>
+            <span class="stat-unit">أدنى قيمة مسجلة</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon" style="background: var(--status-target-bg); color: var(--status-target);"><i class="fas fa-bullseye"></i></div>
+          <div class="stat-info">
+            <span class="stat-label">ضمن النطاق المستهدف</span>
+            <span class="stat-value" id="rep-target-pct">--</span>
+            <span class="stat-unit">من إجمالي <span id="rep-count">0</span> قراءة</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- شبكة الرسوم البيانية داخل Canvas -->
+      <div class="charts-grid">
+        
+        <!-- 1. المخطط الخطي لتغير القراءات زمنيًا -->
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <div>
+              <h2 class="chart-title">مخطط تغير القراءات حسب التاريخ</h2>
+              <span style="font-size: 0.85rem; color: var(--text-muted);">الخطوط المرجعية: 70 mg/dL (أدنى) - 180 mg/dL (أقصى)</span>
+            </div>
+            <div style="display: flex; gap: 0.5rem; font-size: 0.8rem;">
+              <span style="color: var(--status-target);"><i class="fas fa-circle"></i> ضمن الهدف</span>
+              <span style="color: var(--status-high);"><i class="fas fa-circle"></i> مرتفع</span>
+              <span style="color: var(--status-low);"><i class="fas fa-circle"></i> منخفض</span>
+            </div>
+          </div>
+          <div class="canvas-wrapper">
+            <canvas id="lineChart"></canvas>
+          </div>
+        </div>
+
+        <!-- 2. المخطط الدائري لتوزيع الحالات -->
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <h2 class="chart-title">توزيع الحالات نسبياً</h2>
+          </div>
+          <div class="canvas-wrapper" style="height: 250px;">
+            <canvas id="pieChart"></canvas>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem; font-size: 0.85rem;">
+            <div style="display: flex; justify-content: space-between;"><span style="color: var(--status-target);"><i class="fas fa-square"></i> ضمن النطاق المستهدف</span></div>
+            <div style="display: flex; justify-content: space-between;"><span style="color: var(--status-high);"><i class="fas fa-square"></i> أعلى من النطاق المستهدف</span></div>
+            <div style="display: flex; justify-content: space-between;"><span style="color: var(--status-low);"><i class="fas fa-square"></i> منخفض عن النطاق</span></div>
+            <div style="display: flex; justify-content: space-between;"><span style="color: #b8860b;"><i class="fas fa-square"></i> أقل من الهدف</span></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 3. مخطط الأعمدة لمتوسط القراءات حسب توقيت القياس -->
+      <div class="chart-card" style="margin-bottom: 2rem;">
+        <div class="chart-card-header">
+          <div>
+            <h2 class="chart-title">مقارنة متوسط القراءات حسب توقيت القياس</h2>
+            <span style="font-size: 0.85rem; color: var(--text-muted);">مقارنة المتوسط الحسابي للقراءات الصائمة، الوجبات، وقبل النوم</span>
+          </div>
+        </div>
+        <div class="canvas-wrapper" style="height: 260px;">
+          <canvas id="barChart"></canvas>
+        </div>
+      </div>
+
+      <!-- قسم ملخص النمط الآلي -->
+      <div class="pattern-summary-card">
+        <h4><i class="fas fa-lightbulb" style="color: var(--teal);"></i> ملخص نمط القراءات للفترة الحالية</h4>
+        <p id="pattern-summary-text" style="color: var(--text-main); font-size: 1.05rem; line-height: 1.7;">
+          جاري تحليل البيانات وتوليد ملخص اتجاه القراءات...
+        </p>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- التذييل -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><i class="fas fa-droplet" style="color: var(--teal);"></i> سُكّري بلس</div>
+        <p class="footer-desc">منصة عربية تعليمية تم تطويرها كبرنامج تخرج جامعي لمساعدة المرضى على متابعة قياسات سكر الدم اليومية.</p>
+        <div class="footer-disclaimer-box">
+          <i class="fas fa-triangle-exclamation" style="color: var(--status-borderline);"></i> هذه المنصة مشروع تعليمي لمتابعة البيانات ولا تقدم تشخيصًا أو خطة علاجية.
+        </div>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">روابط الصفحات</h4>
+        <ul class="footer-links">
+          <li><a href="index.html"><i class="fas fa-chevron-left"></i> الصفحة الرئيسية</a></li>
+          <li><a href="dashboard.html"><i class="fas fa-chevron-left"></i> لوحة القياسات</a></li>
+          <li><a href="analytics.html"><i class="fas fa-chevron-left"></i> التقارير الإحصائية</a></li>
+          <li><a href="nutrition.html"><i class="fas fa-chevron-left"></i> الدليل الصحي وغذاء</a></li>
+          <li><a href="contact.html"><i class="fas fa-chevron-left"></i> التواصل والطوارئ</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">المصادر الصحية المعتمدة</h4>
+        <ul class="footer-links">
+          <li><a href="https://diabetes.org/living-with-diabetes/treatment-care/checking-your-blood-sugar" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square"></i> الجمعية الأمريكية للسكري</a></li>
+          <li><a href="https://www.cdc.gov/diabetes/treatment/treatment-low-blood-sugar-hypoglycemia.html" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square"></i> مراكز الـ CDC - الهبوط</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>حقوق الطبع والتأليف &copy; <span id="current-year">2026</span> - مشروع جامعي تعليمي لتصميم واجهات الويب</div>
+    </div>
+  </footer>
+
+  <!-- زر العودة للأعلى -->
+  <button class="back-to-top" id="back-to-top" aria-label="العودة لأعلى الصفحة"><i class="fas fa-arrow-up"></i></button>
+
+  <!-- البرمجة التفاعلية (مقسمة إلى وحدات) -->
+  <script src="js/utils.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/classify.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/home.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/analytics.js"></script>
+  <script src="js/nutrition.js"></script>
+  <script src="js/contact.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
