@@ -10,6 +10,7 @@
   /* الألوان الأساسية للهوية */
   --primary-blue: #176B87;
   --dark-blue: #0B3C5D;
+  --navy: #0B3C5D;
   --teal: #36B7A5;
   --light-blue: #EEF7FF;
   
@@ -55,6 +56,7 @@
 [data-theme="dark"] {
   --primary-blue: #5FC1DD;
   --dark-blue: #E2F0F7;
+  --navy: #0A2434;
   --teal: #3EC9B4;
   --light-blue: #143348;
 
@@ -85,34 +87,9 @@
   --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
 }
 
-/* تعديل العناصر التي تحمل ألوانًا ثابتة لتتلاءم مع الوضع الداكن */
-[data-theme="dark"] .btn-secondary,
-[data-theme="dark"] .floating-card,
-[data-theme="dark"] .form-control,
-[data-theme="dark"] .icon-btn,
-[data-theme="dark"] .period-tab.active,
-[data-theme="dark"] .plate-model-section,
-[data-theme="dark"] .plate-circle,
-[data-theme="dark"] .custom-table td {
-  background-color: var(--bg-card);
-}
-
-[data-theme="dark"] .range-bar-container,
-[data-theme="dark"] .period-tabs {
-  background-color: var(--border-color);
-}
-
+/* لمسات خاصة بالوضع الداكن لا يمكن تعويضها بالمتغيرات وحدها */
 [data-theme="dark"] .plate-circle {
   border-color: var(--border-hover);
-}
-
-[data-theme="dark"] .custom-table th {
-  background-color: var(--light-blue);
-}
-
-[data-theme="dark"] .step-icon,
-[data-theme="dark"] .pattern-summary-card {
-  background: linear-gradient(135deg, var(--light-blue), var(--bg-card));
 }
 
 [data-theme="dark"] .badge-borderline {
@@ -121,6 +98,14 @@
 
 [data-theme="dark"] #app-loader {
   background-color: #0B3C5D;
+}
+
+/* العناصر البراند التي تعتمد تدرجًا بنيويًا: نُثبتها على درجات كحلية داكنة
+   حتى يبقى النص الأبيض مقروءًا ولا تتحول إلى تدرجات فاتحة */
+[data-theme="dark"] .logo-icon-wrapper,
+[data-theme="dark"] .btn-primary,
+[data-theme="dark"] .tip-box {
+  background: linear-gradient(135deg, #176B87, var(--navy));
 }
 
 /* زر تبديل الوضع الليلي في الشريط العلوي */
@@ -390,6 +375,34 @@ body {
   border-radius: var(--radius-sm);
 }
 
+/* ترويسة القائمة الجانبية على الجوال (شعار + زر إغلاق) — مخفية على الشاشات الكبيرة */
+.nav-mobile-header-item {
+  display: none;
+}
+
+/* خلفية معتمة خلف القائمة الجانبية */
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 60, 93, 0.45);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 990;
+}
+
+.nav-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* منع تمرير الصفحة خلف القائمة عند فتحها */
+body.nav-open {
+  overflow: hidden;
+}
+
 /* --------------------------------------------------------------------------
    5. الأزرار العامة والشارات (Buttons & Badges)
    -------------------------------------------------------------------------- */
@@ -428,7 +441,7 @@ body {
 }
 
 .btn-secondary {
-  background-color: #ffffff;
+  background-color: var(--bg-card);
   color: var(--primary-blue);
   border-color: var(--border-color);
 }
@@ -573,7 +586,7 @@ main {
 /* Hero Section */
 .hero-section {
   padding: 4rem 1.5rem 5rem;
-  background: linear-gradient(180deg, #EBF3F8 0%, var(--bg-app) 100%);
+  background: linear-gradient(180deg, var(--light-blue) 0%, var(--bg-app) 100%);
   position: relative;
   overflow: hidden;
 }
@@ -640,7 +653,7 @@ main {
 /* بطاقات عائمة بصرية */
 .floating-card {
   position: absolute;
-  background: #ffffff;
+  background: var(--bg-card);
   padding: 0.85rem 1.25rem;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
@@ -782,7 +795,7 @@ main {
   width: 72px;
   height: 72px;
   border-radius: 20px;
-  background: linear-gradient(135deg, var(--light-blue), #ffffff);
+  background: linear-gradient(135deg, var(--light-blue), var(--bg-card));
   border: 1px solid var(--border-color);
   color: var(--primary-blue);
   font-size: 2rem;
@@ -913,7 +926,7 @@ main {
   font-family: inherit;
   font-size: 1rem;
   color: var(--text-main);
-  background-color: #ffffff;
+  background-color: var(--bg-card);
   transition: var(--transition);
   outline: none;
 }
@@ -990,7 +1003,7 @@ main {
 
 .range-bar-container {
   height: 10px;
-  background: #E2E8F0;
+  background: var(--border-color);
   border-radius: 5px;
   position: relative;
   margin: 1rem 0;
@@ -1053,7 +1066,7 @@ main {
 }
 
 .custom-table th {
-  background-color: #F8FAFC;
+  background-color: var(--light-blue);
   color: var(--dark-blue);
   font-weight: 700;
   padding: 1rem;
@@ -1087,7 +1100,7 @@ main {
   height: 34px;
   border-radius: 8px;
   border: 1px solid var(--border-color);
-  background-color: #ffffff;
+  background-color: var(--bg-card);
   color: var(--text-muted);
   cursor: pointer;
   display: flex;
@@ -1123,7 +1136,7 @@ main {
 
 .period-tabs {
   display: flex;
-  background-color: #E2E8F0;
+  background-color: var(--border-color);
   padding: 0.3rem;
   border-radius: var(--radius-md);
   gap: 0.3rem;
@@ -1143,7 +1156,7 @@ main {
 }
 
 .period-tab.active {
-  background-color: #ffffff;
+  background-color: var(--bg-card);
   color: var(--primary-blue);
   box-shadow: var(--shadow-sm);
 }
@@ -1190,7 +1203,7 @@ canvas {
 
 /* بطاقة ملخص النمط */
 .pattern-summary-card {
-  background: linear-gradient(135deg, var(--light-blue), #ffffff);
+  background: linear-gradient(135deg, var(--light-blue), var(--bg-card));
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
   padding: 1.75rem;
@@ -1211,7 +1224,7 @@ canvas {
    -------------------------------------------------------------------------- */
 
 .plate-model-section {
-  background: #ffffff;
+  background: var(--bg-card);
   border-radius: var(--radius-lg);
   padding: 2.5rem;
   border: 1px solid var(--border-color);
@@ -1232,8 +1245,8 @@ canvas {
   height: 360px;
   margin: 0 auto;
   border-radius: 50%;
-  border: 12px solid #E2E8F0;
-  background-color: #ffffff;
+  border: 12px solid var(--border-color);
+  background-color: var(--bg-card);
   position: relative;
   overflow: hidden;
   box-shadow: var(--shadow-md);
@@ -1453,7 +1466,7 @@ canvas {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
-  background-color: #FAFCFE;
+  background-color: var(--bg-card);
 }
 
 .accordion-item.active .accordion-body {
@@ -1473,7 +1486,7 @@ canvas {
    -------------------------------------------------------------------------- */
 
 .site-footer {
-  background-color: var(--dark-blue);
+  background-color: var(--navy);
   color: #ffffff;
   padding: 4rem 1.5rem 2rem;
   margin-top: 4rem;
@@ -1580,7 +1593,7 @@ canvas {
 }
 
 .toast {
-  background: var(--dark-blue);
+  background: var(--navy);
   color: #ffffff;
   padding: 1rem 1.25rem;
   border-radius: var(--radius-md);
@@ -1697,7 +1710,7 @@ canvas {
 }
 
 .back-to-top:hover {
-  background-color: var(--dark-blue);
+  background-color: var(--navy);
   transform: translateY(-3px);
 }
 
@@ -1746,23 +1759,90 @@ canvas {
     display: block;
   }
 
+  /* القائمة الجانبية: تغطي كامل الشاشة وتنزلق من اليمين باستخدام transform */
   .nav-menu {
     position: fixed;
-    top: 73px;
-    right: -100%;
-    width: 280px;
-    height: calc(100vh - 73px);
+    top: 0;
+    right: 0;
+    width: min(300px, 82vw);
+    height: 100%;
+    height: 100dvh;
+    margin: 0;
     background-color: var(--bg-card);
     flex-direction: column;
     align-items: stretch;
-    padding: 1.5rem;
+    justify-content: flex-start;
+    padding: 1rem 1rem 1.5rem;
+    border-left: 1px solid var(--border-color);
     box-shadow: var(--shadow-lg);
-    transition: right 0.3s ease;
-    z-index: 999;
+    overflow-y: auto;
+    z-index: 1001;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
   }
 
   .nav-menu.open {
-    right: 0;
+    transform: translateX(0);
+  }
+
+  /* ترويسة داخلية للقائمة الجانبية */
+  .nav-mobile-header-item {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .nav-mobile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.25rem 0.25rem 0.75rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .nav-mobile-brand {
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: var(--dark-blue);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .nav-mobile-brand i {
+    color: var(--teal);
+  }
+
+  .nav-mobile-brand span {
+    color: var(--teal);
+  }
+
+  .nav-close-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.4rem 0.6rem;
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+  }
+
+  .nav-close-btn:hover {
+    color: var(--status-high);
+    background-color: var(--bg-app);
+  }
+
+  /* تنسيق الروابط داخل القائمة الجانبية */
+  .nav-menu li.nav-link,
+  .nav-menu .nav-link {
+    padding: 0.85rem 1rem;
+    font-size: 0.98rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .nav-link.active::after {
+    display: none;
   }
 
   .steps-grid {
@@ -1788,7 +1868,7 @@ canvas {
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
     padding: 1rem;
-    background: #ffffff;
+    background: var(--bg-card);
   }
 
   .custom-table td {
@@ -1807,6 +1887,30 @@ canvas {
     content: attr(data-label);
     font-weight: 700;
     color: var(--dark-blue);
+  }
+}
+
+/* الشاشات الصغيرة جدًا: إخفاء الشعار الفرعي وزر "أضف قراءة" لإفساح مساحة */
+@media (max-width: 480px) {
+  .brand-slogan {
+    display: none;
+  }
+
+  .navbar {
+    padding: 0.65rem 0.9rem;
+    gap: 0.75rem;
+  }
+
+  .nav-actions {
+    gap: 0.5rem;
+  }
+
+  .nav-actions .btn-primary {
+    display: none;
+  }
+
+  .brand-name {
+    white-space: nowrap;
   }
 }
 
