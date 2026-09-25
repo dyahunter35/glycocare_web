@@ -39,6 +39,12 @@ function initHomePage() {
     // آخر قراءة
     const latest = readings[readings.length - 1];
     if (lastValEl) lastValEl.textContent = latest.value + ' mg/dL';
+  } else {
+    // لا توجد قراءات (مثلًا بعد مسح البيانات): إظهار قيم محايدة بدل القيم الثابتة
+    if (totalEl) totalEl.textContent = '0';
+    if (avg7El) avg7El.textContent = '--';
+    if (targetPctEl) targetPctEl.textContent = '0%';
+    if (lastValEl) lastValEl.textContent = '--';
   }
 
   // تدوير نصيحة اليوم
